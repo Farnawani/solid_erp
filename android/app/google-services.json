@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "105457319945",
+    "firebase_url": "https://solid-erp-287513.firebaseio.com",
+    "project_id": "solid-erp-287513",
+    "storage_bucket": "solid-erp-287513.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105457319945:android:f59894c62c32b0448a38d8",
+        "android_client_info": {
+          "package_name": "com.farnawani.solid_erp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105457319945-n8rjokpcam0d41afo6u1ikvna8qunha0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0p_k2KN7uHBr4NcjyiRVfImsqjUCif2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105457319945-n8rjokpcam0d41afo6u1ikvna8qunha0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
