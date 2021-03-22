@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
@@ -48,36 +47,32 @@ class WebViewState extends State<WebViewer> {
         withJavascript: true,
         supportMultipleWindows: true,
         withZoom: true,
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-            children: [
-              IconButton(
-                icon: Icon(Icons.arrow_back_ios),
-                onPressed: () {
-                  flutterWebViewPlugin.goBack();
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.arrow_forward_ios),
-                onPressed: () {
-                  flutterWebViewPlugin.goForward();
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.autorenew),
-                onPressed: () {
-                  flutterWebViewPlugin.reload();
-                },
-              ),
-            ],
-          ),
-        ),
+        // bottomNavigationBar: BottomAppBar(
+        //   child: Row(
+        //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //     children: [
+        //       IconButton(
+        //         icon: Icon(Icons.arrow_back_ios),
+        //         onPressed: () {
+        //           flutterWebViewPlugin.goBack();
+        //         },
+        //       ),
+        //       IconButton(
+        //         icon: Icon(Icons.arrow_forward_ios),
+        //         onPressed: () {
+        //           flutterWebViewPlugin.goForward();
+        //         },
+        //       ),
+        //       IconButton(
+        //         icon: Icon(Icons.autorenew),
+        //         onPressed: () {
+        //           flutterWebViewPlugin.reload();
+        //         },
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ),
-      // WebView(
-      //   // onPageFinished: (url) => args.url,
-      //   initialUrl: url,
-      //   javascriptMode: JavascriptMode.unrestricted,
-      // ),
     );
   }
 }

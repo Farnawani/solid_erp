@@ -1,13 +1,11 @@
 import 'dart:io';
-import 'dart:async';
-import 'package:path/path.dart';
 import 'package:solid_erp/Hint.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:flutter/material.dart';
 import 'package:solid_erp/web_viewer.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter/widgets.dart';
 import 'package:solid_erp/Database.dart';
+import 'package:dropdownfield/dropdownfield.dart';
 
 import 'Database.dart';
 
@@ -32,68 +30,6 @@ class _StartPageState extends State<StartPage> {
     print(availHints);
   }
 
-  // Future<List<Hint>> getHints() async {
-  // // Get a reference to the database.
-  // final Database db = await widget.database;
-  //
-  // // Query the table for all The Dogs.
-  // final List<Map<String, dynamic>> maps = await db.query('hints');
-  //
-  // // Convert the List<Map<String, dynamic> into a List<Dog>.
-  // return List.generate(maps.length, (i) {
-  //   return Hint(
-  //       hint: maps[i]['hint'],
-  //     );
-  //   });
-  // }
-
-  // _query() async {
-  //
-  //   // get a reference to the database
-  //   final Database db = await widget.database;
-  //
-  //   // raw query
-  //   List<Map> result = await db.rawQuery('SELECT * FROM hints');
-  //
-  //   // print the results
-  //   result.forEach((row) => print(row));
-  //   // {_id: 2, name: Mary, age: 32}
-  // }
-
-  // void insertHint(Hint hint) async {
-  //   // Get a reference to the database.
-  //   final Database db = await widget.database;
-  //   // Insert the Dog into the correct table. You might also specify the
-  //   // `conflictAlgorithm` to use in case the same dog is inserted twice.
-  //   //
-  //   // In this case, replace any previous data.
-  //   // await db.insert(
-  //   //   'hints',
-  //   //   hint.toMap(),
-  //   //   conflictAlgorithm: ConflictAlgorithm.replace,
-  //   // );
-  //   await db.rawInsert('INSERT INTO hints (hint) VALUES(${hint.toMap()})');
-  // }
-
-  // void initializeList() async {
-  //   List<Hint> mapsList = await getHints();
-  //   for(int i = 0; i < mapsList.length; i++){
-  //     // print("mapsList");
-  //     print(mapsList);
-  //   }
-  // }
-
-  // void initialize ()async{
-  //   widget.database=openDatabase(
-  //       join(await getDatabasesPath(), 'hints_database.db'),
-  //   onCreate: (db, version) {
-  //   return db.execute(
-  //   "CREATE TABLE hints(hint TEXT)",
-  //   );
-  //   },
-  //   version: 1,
-  //   );
-  // }
   @override
   void initState() {
     super.initState();
@@ -122,26 +58,22 @@ class _StartPageState extends State<StartPage> {
                 borderRadius: BorderRadius.circular(10.0),
                 child: Container(
                   width: 370.0,
-                  child: TextField(
-                    keyboardType: TextInputType.text,
-                    controller: myController,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: '   Enter URL',
-                      suffixIcon: PopupMenuButton<String>(
-                        icon: Icon(Icons.arrow_drop_down),
-                        onSelected: (String value) {
-                          myController.text = value;
+                  child: Column(
+                    children: [
+                      DropDownField(
+                        strict: false,
+                        controller: myController,
+                        hintText: "Enter URL",
+                        enabled: true,
+                        items: availHints,
+                        onValueChanged: (value){
+                          setState(() {
+                            myController.text = value;
+                          });
                         },
-                        itemBuilder: (BuildContext context) {
-                          return availHints
-                              .map<PopupMenuItem<String>>((String value) {
-                            return PopupMenuItem(
-                                child: Text(value), value: value);
-                          }).toList();
-                        },
+
                       ),
-                    ),
+                    ],
                   ),
                 ),
               ),
