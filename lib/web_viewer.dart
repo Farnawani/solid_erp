@@ -47,6 +47,13 @@ class WebViewState extends State<WebViewer> {
         withJavascript: true,
         supportMultipleWindows: true,
         withZoom: true,
+        initialChild: Container(
+          child: Center(
+            child: CircularProgressIndicator(
+              backgroundColor: Color(0xFF921111),
+            ),
+          ),
+        ),
         // bottomNavigationBar: BottomAppBar(
         //   child: Row(
         //     mainAxisAlignment: MainAxisAlignment.spaceAround,
