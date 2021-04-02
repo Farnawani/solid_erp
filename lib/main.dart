@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
 import 'package:solid_erp/web_viewer.dart';
 import 'package:solid_erp/start_page.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:solid_erp/Database.dart';
 
 void main()async {
